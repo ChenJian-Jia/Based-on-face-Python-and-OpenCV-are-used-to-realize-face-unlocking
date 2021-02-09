@@ -58,16 +58,16 @@ cv2.imshow("Image",vis)
 6.代码中url中所填写的是Face++中检测人脸所要调用的url：https://api-cn.faceplusplus.com/facepp/v3/detect    
 ![img1](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/Face%2B%2B%E7%BD%91%E7%AB%99%E6%93%8D%E4%BD%9C1.png)   
 ![img2](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/Face%2B%2B%E7%BD%91%E7%AB%99%E6%93%8D%E4%BD%9C3.png)  
-7.apikey和apisecret申请
+7.apikey和apisecret申请   
 ![img3](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/Face%2B%2B%E7%BD%91%E7%AB%99%E6%93%8D%E4%BD%9C4.png)   
 8.img=cv2.imread("4.jpg")中的“4.jpg”是你想要上传的面孔上传后json会返回面部指纹（face_token）      
 
 ### face_token运行结果  
-我使用的是本地素材2，运行结果为：  
-![img](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/tree/main/img)
-我们可以看到这个返回的json包里有很多的值，我们这里最重要的就是拿到这张脸的face_toen，然后保存起来，收录到服务端的时候需要。  
-注：这里可能有些朋友在网上随便找的照片可能报错，这很可能是图片像素的问题，尽量找高清的，运行后，人脸部分会被绿框标识。
-## 创建人脸集合，并加入face_token
+我使用的是本地素材2，运行结果为：    
+![img](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/tree/main/img)   
+我们可以看到这个返回的json包里有很多的值，我们这里最重要的就是拿到这张脸的face_toen，然后保存起来，收录到服务端的时候需要。    
+注：这里可能有些朋友在网上随便找的照片可能报错，这很可能是图片像素的问题，尽量找高清的，运行后，人脸部分会被绿框标识。   
+## 创建人脸集合，并加入face_token   
 ```
 #coding=utf8
 import requests

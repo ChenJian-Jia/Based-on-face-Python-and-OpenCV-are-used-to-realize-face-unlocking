@@ -49,18 +49,18 @@ cv2.rectangle(vis,(left,top),(left+width,top+height),(0,256,0),2)
 cv2.imshow("Image",vis)
 
 ```
-### 说明：  
-1.api规定是要post提交，所以这里用了request.post()  
-2.apikey/apisecret必填 没有的自行申请见说明7 
-3.return_attributes选填 里面有返回的数据 有年龄性别等等  
-4.return_landmark选填 是否检测返回人脸关键点0为不返回1为检测83个关键点2为检测106个关键点  
-5.传输的内容为请求的URL，图片路径（必填！可以是本地绝对路径，也可以是网络图片分别为image_file、image_url）data数据也就是payload里面的参数：
-6.代码中url中所填写的是Face++中检测人脸所要调用的url：https://api-cn.faceplusplus.com/facepp/v3/detect
-![img1](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/Face%2B%2B%E7%BD%91%E7%AB%99%E6%93%8D%E4%BD%9C1.png)
-![img2](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/Face%2B%2B%E7%BD%91%E7%AB%99%E6%93%8D%E4%BD%9C3.png)
+### 说明：    
+1.api规定是要post提交，所以这里用了request.post()    
+2.apikey/apisecret必填 没有的自行申请见说明7   
+3.return_attributes选填 里面有返回的数据 有年龄性别等等    
+4.return_landmark选填 是否检测返回人脸关键点0为不返回1为检测83个关键点2为检测106个关键点    
+5.传输的内容为请求的URL，图片路径（必填！可以是本地绝对路径，也可以是网络图片分别为image_file、image_url）data数据也就是payload里面的参数：  
+6.代码中url中所填写的是Face++中检测人脸所要调用的url：https://api-cn.faceplusplus.com/facepp/v3/detect    
+![img1](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/Face%2B%2B%E7%BD%91%E7%AB%99%E6%93%8D%E4%BD%9C1.png)   
+![img2](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/Face%2B%2B%E7%BD%91%E7%AB%99%E6%93%8D%E4%BD%9C3.png)  
 7.apikey和apisecret申请
-![img3](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/Face%2B%2B%E7%BD%91%E7%AB%99%E6%93%8D%E4%BD%9C4.png)
-8.img=cv2.imread("4.jpg")中的“4.jpg”是你想要上传的面孔上传后json会返回面部指纹（face_token）    
+![img3](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/Face%2B%2B%E7%BD%91%E7%AB%99%E6%93%8D%E4%BD%9C4.png)   
+8.img=cv2.imread("4.jpg")中的“4.jpg”是你想要上传的面孔上传后json会返回面部指纹（face_token）      
 
 ### face_token运行结果  
 我使用的是本地素材2，运行结果为：  

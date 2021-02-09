@@ -104,7 +104,58 @@ face_tokens：传入的人脸标识
 ### creatingCollectionFaces运行结果
 ![img](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/creatingCollectionFaces%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png)  
 运行完毕后，会返回一个faceset_token，这个地方我们要记录下来，因为我们已经把我们的奥巴马的facetoken上传到服务端的我们创建的集合里了，这个faceset token就是我们的面部集合id 或者说是一个相册都可以。  
+## 判断是否为管理员：
+```
+#coding=utf8
+import cv2
+import requests
+import json
+flag = 0
+while flag==0:
+    capture = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+    while True:
+        ret, frame = capture.read()
+        if ret == True:
+            cv2.imshow('My Camera', frame)
+        key = cv2.waitKey(10)
+        if key == 27:
+            flag = 1
+            break
+        if key == ord('x'):
+
+            filename = "face.jpg"
+            cv2.imwrite(filename,frame)
+            print('正在进行认证')
+            break
+
+    del (capture)
+    cv2.destroyWindow("camera")
+    if flag==0:
+         url = 'https://api-cn.faceplusplus.com/facepp/v3/search'
+         payload = {'api_key':'XXX',
+                    'api_secret':'XXX',
+                    'faceset_token':'0a3432dfd7001448c48c308ed743abad'}
+         files = {'image_file':open('face.jpg','rb')}
+         r = requests.post(url, files=files, data=payload)
+         data = json.loads(r.text)
+         print(data)
+         print( r.text)
+         # print(data["results"][0]["face_token"]=='dc83bd034ef87241e8fcb99bf088ed5f')
+         # if data["results"][0]["face_token"] == "ba24b26bc85ce3048a4e0b6ebee4acb2" and data["results"][0]["confidence"]>=data["thresholds"]["1e-5"]:
+         if data["results"][0]["face_token"] == "dc83bd034ef87241e8fcb99bf088ed5f" and data["results"][0]["confidence"]>=data["thresholds"]["1e-5"]:
+             name = "奥巴马"
+             print('认证成功，奥巴马')
+         elif data["results"][0]["face_token"] == "bdc963938ef0f2b26001b5f8ef086ea6" and data["results"][0]["confidence"]>=data["thresholds"]["1e-5"]:
+             name = "特朗普"
+             print('认证成功，特朗普')
 
 
-
+```
+### 说明
+14.此代码中的url为查找需要调用的url：https://api-cn.faceplusplus.com/facepp/v3/search  
+![img](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/Face%2B%2B%E7%BD%91%E7%AB%99%E6%93%8D%E4%BD%9C6.png)  
+在一个已有的 FaceSet 中找出与目标人脸最相似的一张或多张人脸，返回置信度和不同误识率下的阈值。  
+支持传入图片或 face_token 进行人脸搜索。使用图片进行搜索时会选取图片中检测到人脸尺寸最大的一个人脸。  
+我们将本地素材2的面部值（face token）放入此代码的if里面，将要去查询的面部集合（相册）设置为我们前面获取的faceset tokens（此代码中的faceset tokens所填的是creatingCollectionFaces于运行结果中产生的faceset tokens），然后我们随便照一张照片匹配一下。  
+![img](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png)  
 

@@ -20,7 +20,7 @@ Face++接口
 3.通过python的if判断是否收录当前面孔
 ## 代码部分
 1.获取面孔face_token
-···
+```
 import cv2
 import requests
 import json
@@ -48,6 +48,6 @@ vis=img.copy()
 cv2.rectangle(vis,(left,top),(left+width,top+height),(0,256,0),2)
 cv2.imshow("Image",vis)
 
-···
+```
 
 

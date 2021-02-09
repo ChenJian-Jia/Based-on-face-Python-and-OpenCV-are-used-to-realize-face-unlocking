@@ -158,9 +158,10 @@ while flag==0:
 支持传入图片或 face_token 进行人脸搜索。使用图片进行搜索时会选取图片中检测到人脸尺寸最大的一个人脸。  
 我们将本地素材2的面部值（face token）放入此代码的if里面，将要去查询的面部集合（相册）设置为我们前面获取的faceset tokens（此代码中的faceset tokens所填的是creatingCollectionFaces于运行结果中产生的faceset tokens），然后我们随便照一张照片匹配一下。  
 15.按x截屏（不是在编辑器里输入x，点击生成的摄像头画面按x）
-![img](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png)  
+### 运行结果  
+![img](https://github.com/ChenJian-Jia/Based-on-face-Python-and-OpenCV-are-used-to-realize-face-unlocking/blob/main/img/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png)   
 ## 重点来啦！！！！需要说明的几点
-1.如果faceDetection运行出现一直是“正在认证识别”没有反应，有两种情况第一种API KEY 免费的使用次数用完了（大概20次），这个问题搞了我好长时间（血与泪啊！！！）。第二种，本地素材没有上传到服务器，多执行几次试试。
+1.如果faceDetection运行出现一直是“正在认证识别”没有反应，有两种情况第一种API KEY 免费的使用次数用完了（大概20次），这个问题搞了我好长时间（血与泪啊！！！）。第二种，本地素材没有上传到服务器，多执行几次试试。  
 2.此程序可以多次认证，按x可以多次认证，前提是你把数据传到服务器了，可以从face_token执行多人的图片，然后按照步骤执行，最后在faceDetection中继续加elif即可。
 第一次写博客（算是博客吧，哈哈哈哈），希望大家批评指正。
 
